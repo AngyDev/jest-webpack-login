@@ -1,0 +1,24 @@
+{
+    "name": "jest-webpack-dropdown",
+    "version": "1.0.0",
+    "description": "Example to use jest and webpack in a js project",
+    "main": "index.js",
+    "scripts": {
+        "build": "webpack --config webpack.config.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/AngyDev/jest-webpack-dropdown.git"
+    },
+    "author": "Angela Busato",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/AngyDev/jest-webpack-dropdown/issues"
+    },
+    "homepage": "https://github.com/AngyDev/jest-webpack-dropdown#readme",
+    "devDependencies": {
+        "webpack": "^5.33.2",
+        "webpack-cli": "^4.6.0",
+        "webpack-dev-server": "^3.11.2"
+    }
+}
