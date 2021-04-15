@@ -1,5 +1,5 @@
 {
-    "name": "jest-webpack-dropdown",
+    "name": "jest-webpack-login",
     "version": "1.0.0",
     "description": "Example to use jest and webpack in a js project",
     "main": "index.js",
@@ -9,14 +9,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/AngyDev/jest-webpack-dropdown.git"
+        "url": "git+https://github.com/AngyDev/jest-webpack-login.git"
     },
     "author": "Angela Busato",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/AngyDev/jest-webpack-dropdown/issues"
+        "url": "https://github.com/AngyDev/jest-webpack-login/issues"
     },
-    "homepage": "https://github.com/AngyDev/jest-webpack-dropdown#readme",
+    "homepage": "https://github.com/AngyDev/jest-webpack-login#readme",
     "devDependencies": {
         "@babel/core": "^7.13.15",
         "@babel/preset-env": "^7.13.15",
