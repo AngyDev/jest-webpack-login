@@ -1,0 +1,23 @@
+.form {
+    flex-direction: column;
+    &__item {
+        flex-direction: column;
+    }
+}
+
+.item {
+    &__label {
+        width: 100%;
+    }
+}
+
+@include desktop {
+    .form__item {
+        flex-direction: row;
+    }
+    .item {
+        &__label {
+            width: 50%;
+        }
+    }
+}
