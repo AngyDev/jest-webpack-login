@@ -1,0 +1,9 @@
+@font-face {
+    font-family: Poppins;
+    src: url("/src/fonts/Poppins-Regular.ttf");
+}
+
+.font__title {
+    font-family: $font-family-poppins;
+    font-size: $font-size-title;
+}
