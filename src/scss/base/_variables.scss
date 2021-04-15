@@ -1,3 +1,8 @@
-$font-size-base: 1rem;
-$font-size-title: ($font-size-base * 1.875);
+/* Fonts */
+
+// Family
 $font-family-poppins: Poppins;
+// Size
+$font-size-base: 1rem;
+$font-size-title: ($font-size-base * 1.875); // 30px
+$font-size-md: ($font-size-base * 1.125); // 18px
