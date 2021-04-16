@@ -2,7 +2,7 @@
  * Validation class
  * Checks the input validation
  */
-class Validation {
+export default class Validation {
 
     /**
      * Checks if the inputs are valid, not empty or null
