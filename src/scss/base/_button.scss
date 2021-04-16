@@ -1,0 +1,18 @@
+.btn {
+    height: 40px;
+    background: $btn-bg-color;
+    border-radius: 4px;
+    border-style: none;
+    cursor: pointer;
+    outline: none;
+    margin-top: 10px;
+    &--width-lg {
+        width: 100%;
+    }
+    &__text {
+        @extend .font__caption-base;
+        color: $btn-text-color;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+}
