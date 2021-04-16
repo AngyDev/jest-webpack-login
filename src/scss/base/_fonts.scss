@@ -8,7 +8,12 @@
     font-size: $font-size-title;
 }
 
-.font__caption {
+.font__caption-sm {
     font-family: $font-family-poppins;
-    font-size: $font-size-md;
+    font-size: $font-size-sm;
+}
+
+.font__caption-base {
+    font-family: $font-family-poppins;
+    font-size: $font-size-base;
 }
