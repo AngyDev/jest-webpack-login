@@ -1,5 +1,5 @@
 .form {
-    flex-direction: column;
+    margin-bottom: 20px;
     &__item {
         flex-direction: column;
     }
@@ -8,16 +8,19 @@
 .item {
     &__label {
         width: 100%;
+        color: $label-color;
+        margin-bottom: 7px;
     }
-}
-
-@include desktop {
-    .form__item {
-        flex-direction: row;
-    }
-    .item {
-        &__label {
-            width: 50%;
+    &__input {
+        margin-bottom: 15px;
+        border: 1px solid #dddfe2;
+        border-radius: 4px;
+        height: 40px;
+        padding: 10px;
+        &:focus {
+            border-color: #0366d6;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
         }
     }
 }
