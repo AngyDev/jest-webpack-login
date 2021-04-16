@@ -10,27 +10,32 @@
 
 <body>
     <div class="container">
-        <header class="header">
-            <h1 class="font__title">Jest Webpack &amp; Login Example</h1>
-        </header>
-        <main>
-            <div>
-                <form class="form flex font__caption" action="">
-                    <div class="form__item flex">
-                        <label class="item__label" for="name">Name</label>
-                        <input id="name" name="name" type="text">
+        <div class="login__container flex flex-col">
+            <main>
+                <div class="flex flex-col">
+                    <div class="header">
+                        <h1 class="font__title">Sign In</h1>
                     </div>
-                    <div>
-                        <label for="password">Password</label>
-                        <input type="text" name="password" id="password">
+                    <form class="form flex flex-col" action="">
+                        <div class="form__item font__caption-sm flex">
+                            <label class="item__label" for="name">Name</label>
+                            <input class="item__input" id="name" name="name" type="text">
+                        </div>
+                        <div class="form__item font__caption-sm flex">
+                            <label class="item__label" for="password ">Password</label>
+                            <input class="item__input" type="text " name="password " id="password ">
+                        </div>
+                        <div>
+                            <button class="btn btn--width-lg" type="submit"><span class="btn__text">LOGIN</span></button>
+                        </div>
+                    </form>
+                    <div class="form__bottom flex font__caption-sm">
+                        <span>Forgot Password?</span><span>Create an Account</span>
                     </div>
-                    <div>
-                        <button type="submit">LOGIN</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </main>
+        </div>
     </div>
-    </main>
 </body>
 
 </html>
