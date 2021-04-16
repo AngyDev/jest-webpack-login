@@ -1,3 +1,9 @@
+/* Color */
+
+$label-color: #24292e;
+$btn-bg-color: #2ea44f;
+$btn-text-color: #ffffff;
+
 /* Fonts */
 
 // Family
@@ -5,4 +11,5 @@ $font-family-poppins: Poppins;
 // Size
 $font-size-base: 1rem;
 $font-size-title: ($font-size-base * 1.875); // 30px
+$font-size-sm: ($font-size-base * 0.875); // 14px
 $font-size-md: ($font-size-base * 1.125); // 18px
