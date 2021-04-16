@@ -10,10 +10,12 @@ body {
     min-width: 360px;
     max-width: 1440px;
     margin: 0 auto;
-    background-color: aliceblue;
-    padding: 50px;
 }
 
 .flex {
     display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
 }
