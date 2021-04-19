@@ -17,7 +17,7 @@
         border-radius: 4px;
         padding: 10px;
         &:focus {
-            border-color: #0366d6;
+            border-color: $input-focus-color;
             outline: none;
             box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
         }
