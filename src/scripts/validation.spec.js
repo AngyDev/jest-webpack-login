@@ -6,9 +6,11 @@ describe("Validation Test Class", () => {
 
     it("test input is not valid", () => {
 
-        const valid = validation.isValid("");
+        const resultEmpty = validation.isValid("");
+        const resultNull = validation.isValid(null);
 
-        expect(valid).toBeFalsy();
+        expect(resultEmpty).toBeFalsy();
+        expect(resultNull).toBeFalsy();
 
     });
 
