@@ -1,0 +1,19 @@
+.error {
+    border: 1px solid $error-border-color;
+    display: none;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: $error-bg-color;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    &__font {
+        @extend .font__caption-base;
+    }
+    &__btn {
+        border: none;
+        color: $error-border-color;
+        outline: none;
+        background: none;
+        cursor: pointer;
+    }
+}
