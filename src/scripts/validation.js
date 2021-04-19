@@ -6,7 +6,7 @@ export default class Validation {
 
     /**
      * Checks if the inputs are valid, not empty or null
-     * @param {*} value 
+     * @param {*} value - The input value
      * @returns 
      */
     isValid(value) {
