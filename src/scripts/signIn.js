@@ -1,4 +1,3 @@
-// @ts-nocheck
 const { default: Login } = require("./login");
 
 const signIn = document.getElementById("signIn");
