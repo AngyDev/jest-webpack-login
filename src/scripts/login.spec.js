@@ -8,7 +8,7 @@ describe("Login form class", () => {
     // Resets the fetch mock before to user the fetch
     beforeEach(() => {
         fetch.resetMocks();
-    })
+    });
 
     it("test checks if the input is not empty", () => {
 
@@ -56,6 +56,45 @@ describe("Login form class", () => {
         expect(resultPasswordError).toBe("The password is wrong!");
     });
 
+    it("test method checkData from user present", async() => {
+
+        const loginIn = new Login();
+
+        const mockUserName = jest.fn().mockReturnValue([{ "name": "Angela", "password": "angela" }]);
+
+        loginIn.getData = mockUserName;
+
+        const result = await loginIn.checkData("Angela", "angela");
+
+        expect(result).toBe(undefined);
+    });
+
+    it("test method checkData from user NOT present", async() => {
+
+        const loginIn = new Login();
+
+        const mockUserNameNotPresent = jest.fn().mockReturnValue([]);
+
+        loginIn.getData = mockUserNameNotPresent;
+
+        const result = await loginIn.checkData("test", "test");
+
+        expect(result).toBe("The user is not registered");
+    });
+
+    it("test method checkData from user with WRONG password", async() => {
+
+        const loginIn = new Login();
+
+        const mockUserNameNotPresent = jest.fn().mockReturnValue([{ "name": "Angela", "password": "angela" }]);
+
+        loginIn.getData = mockUserNameNotPresent;
+
+        const result = await loginIn.checkData("Angela", "test");
+
+        expect(result).toBe("The password is wrong!");
+    });
+
     it("test method get data", async() => {
         //fetch.mockResponseOnce(JSON.stringify([{ name: 'Angela', password: 'angela' }]));
 
@@ -95,5 +134,6 @@ describe("Login form class", () => {
         expect(result).toBeNull();
         expect(fetch).toHaveBeenCalledTimes(1);
     });
+
 
 })
