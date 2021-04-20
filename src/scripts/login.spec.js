@@ -1,5 +1,5 @@
 // @ts-nocheck
-const { default: Login } = require("./login")
+const { default: Login } = require("./login");
 
 describe("Login form class", () => {
 
