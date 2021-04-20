@@ -1,8 +1,14 @@
+// @ts-nocheck
 const { default: Login } = require("./login")
 
 describe("Login form class", () => {
 
     const login = new Login();
+
+    // Resets the fetch mock before to user the fetch
+    beforeEach(() => {
+        fetch.resetMocks();
+    })
 
     it("test checks if the input is not empty", () => {
 
@@ -36,7 +42,7 @@ describe("Login form class", () => {
         expect(result).toEqual(undefined);
     });
 
-    it("test method checkUser from user prenset", () => {
+    it("test method checkUser from user present", () => {
         const result = login.checkUser("Angela", "angela");
 
         expect(result).toBe(undefined);
@@ -49,4 +55,45 @@ describe("Login form class", () => {
         expect(resultUserNotPresent).toBe("The user is not registered");
         expect(resultPasswordError).toBe("The password is wrong!");
     });
+
+    it("test method get data", async() => {
+        //fetch.mockResponseOnce(JSON.stringify([{ name: 'Angela', password: 'angela' }]));
+
+        fetch.mockResponse(JSON.stringify([{ name: 'Angela', password: 'angela' }]), { status: 200 });
+
+        const result = await login.getData("Angela");
+
+        const obj = [{ name: 'Angela', password: 'angela' }];
+
+        expect(result).toEqual(obj);
+        expect(fetch).toHaveBeenCalledTimes(1);
+        expect(fetch).toHaveBeenLastCalledWith("https://605a21feb11aba001745da26.mockapi.io/api/v1/loginUsers?name=Angela");
+    });
+
+    it("test method get data with response status 400", async() => {
+        fetch.mockResponse(JSON.stringify([]), { status: 400 });
+
+        const result = await login.getData("Angela");
+
+        expect(result).toBeNull;
+        expect(fetch).toHaveBeenCalledTimes(1);
+    });
+
+    it("test method get data no user", async() => {
+        fetch.mockResponseOnce(JSON.stringify([]));
+
+        const result = await login.getData("test");
+
+        expect(result).toEqual([]);
+    });
+
+    it("test method get data catches error and returns null", async() => {
+        fetch.mockReject(() => "API failure");
+
+        const result = await login.getData("Angela");
+
+        expect(result).toBeNull();
+        expect(fetch).toHaveBeenCalledTimes(1);
+    });
+
 })
