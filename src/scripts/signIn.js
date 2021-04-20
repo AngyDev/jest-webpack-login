@@ -20,7 +20,8 @@ function error(e, msg) {
     e.preventDefault();
 }
 
-signIn && signIn.addEventListener('click', (e) => {
+signIn && signIn.addEventListener('click', async(e) => {
+    e.preventDefault();
     // gets the value of the input
     const usernameValue = username.value.trim();
     const passwordValue = password.value;
@@ -31,10 +32,18 @@ signIn && signIn.addEventListener('click', (e) => {
         error(e, "Incorrect name or password");
     } else {
         // Checks if the user is registered 
-        const msg = login.checkUser(usernameValue, passwordValue);
-        // The user is not registered or the password is not valid
-        if (msg != undefined) {
-            error(e, msg);
+        try {
+            const msg = await login.checkData(usernameValue, passwordValue);
+
+            // The user is not registered or the password is not valid
+            if (msg != undefined) {
+                error(e, msg);
+            } else {
+                window.location.assign("https://www.google.com");
+            }
+
+        } catch (error) {
+            console.log(error);
         }
     }
 });
