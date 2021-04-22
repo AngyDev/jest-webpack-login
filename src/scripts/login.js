@@ -46,10 +46,10 @@ export default class Login {
 
             const user = await response.json();
 
-            return user;
+            return Promise.resolve(user);
         } catch (error) {
             console.log(error);
-            return null;
+            return Promise.reject(error);
         }
     }
 
@@ -60,16 +60,20 @@ export default class Login {
      * @returns String - The error message
      */
     async checkData(username, password) {
-        const user = await this.getData(username);
+        try {
+            const user = await this.getData(username);
 
-        // the user is not present
-        if (user.length == 0) {
-            return "The user is not registered";
-        } else {
-            // the user is present
-            if (user[0].password !== password) {
-                return "The password is wrong!";
+            // the user is not present
+            if (user.length == 0) {
+                return "The user is not registered";
+            } else {
+                // the user is present
+                if (user[0].password !== password) {
+                    return "The password is wrong!";
+                }
             }
+        } catch (error) {
+            return Promise.reject(error);
         }
     }
 

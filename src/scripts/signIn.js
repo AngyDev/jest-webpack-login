@@ -20,11 +20,7 @@ export function error(msg) {
 /**
  * Checks if the inputs are valid and if the user is present
  */
-export async function userLogin() {
-
-    // gets the value of the input
-    const usernameValue = username.value.trim();
-    const passwordValue = password.value;
+export async function userLogin(usernameValue, passwordValue) {
 
     const isValid = login.checkInput(usernameValue, passwordValue);
 
@@ -38,13 +34,14 @@ export async function userLogin() {
             // The user is not registered or the password is not valid
             if (msg != undefined) {
                 error(msg);
-                //return msg;
+                return msg;
             } else {
                 window.location.assign("https://www.google.com");
             }
 
         } catch (error) {
             console.log(error);
+            error(error);
         }
     }
 
@@ -52,5 +49,10 @@ export async function userLogin() {
 
 signIn && signIn.addEventListener('click', (e) => {
     e.preventDefault();
-    userLogin();
+
+    // gets the value of the input
+    const usernameValue = username.value.trim();
+    const passwordValue = password.value;
+
+    userLogin(usernameValue, passwordValue);
 });
