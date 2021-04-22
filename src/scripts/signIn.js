@@ -19,17 +19,19 @@ export function error(msg) {
 
 /**
  * Checks if the inputs are valid and if the user is present
+ * @param {String} username - The value of the name input
+ * @param {String} password - The value of the password input
  */
-export async function userLogin(usernameValue, passwordValue) {
+export async function userLogin(username, password) {
 
-    const isValid = login.checkInput(usernameValue, passwordValue);
+    const isValid = login.checkInput(username, password);
 
     if (!isValid) {
         error("Incorrect name or password");
     } else {
         // Checks if the user is registered 
         try {
-            const msg = await login.checkData(usernameValue, passwordValue);
+            const msg = await login.checkData(username, password);
 
             // The user is not registered or the password is not valid
             if (msg != undefined) {
@@ -41,7 +43,6 @@ export async function userLogin(usernameValue, passwordValue) {
 
         } catch (error) {
             console.log(error);
-            error(error);
         }
     }
 
