@@ -20,12 +20,23 @@ describe("Login form class", () => {
     it("test checks if the input is empty", () => {
 
         const result = login.checkInput("", "");
-        const resultEmptyName = login.checkInput("", "pwd");
-        const resultEmptyPwd = login.checkInput("name", "");
 
         expect(result).toBeFalsy();
+    });
+
+    it("should check if the name input is empty", () => {
+
+        const resultEmptyName = login.checkInput("", "pwd");
+
         expect(resultEmptyName).toBeFalsy();
+    });
+
+    it("should check if the password input is empty", () => {
+
+        const resultEmptyPwd = login.checkInput("name", "");
+
         expect(resultEmptyPwd).toBeFalsy();
+
     });
 
     it("test get user: The user is present", () => {
@@ -50,9 +61,13 @@ describe("Login form class", () => {
 
     it("test method checkUser from user not present", () => {
         const resultUserNotPresent = login.checkUser("test", "angela");
-        const resultPasswordError = login.checkUser("Angela", "test");
 
         expect(resultUserNotPresent).toBe("The user is not registered");
+    });
+
+    it("test method checkUser password is wrong", () => {
+        const resultPasswordError = login.checkUser("Angela", "test");
+
         expect(resultPasswordError).toBe("The password is wrong!");
     });
 
@@ -134,6 +149,5 @@ describe("Login form class", () => {
         expect(result).toBeNull();
         expect(fetch).toHaveBeenCalledTimes(1);
     });
-
 
 })
