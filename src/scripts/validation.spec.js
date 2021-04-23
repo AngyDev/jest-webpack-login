@@ -4,12 +4,18 @@ describe("Validation Test Class", () => {
 
     const validation = new Validation();
 
-    it("test input is not valid", () => {
+    it("test input is empty", () => {
 
         const resultEmpty = validation.isValid("");
-        const resultNull = validation.isValid(null);
 
         expect(resultEmpty).toBeFalsy();
+
+    });
+
+    it("test input is null", () => {
+
+        const resultNull = validation.isValid(null);
+
         expect(resultNull).toBeFalsy();
 
     });
